@@ -7,8 +7,15 @@ public class LamdaEx1 {
         function.run(); //매개변수 타입이 Myfunction인 메서드
     }
 
-    static MyFunction getMyFunction() {
+    static MyFunction getMyFunction() { // 반환타입이 타입이 MyFunction인 메서드
         MyFunction function = () -> System.out.println("f3.run()");
+        // 뒤의 람다식은, 사실 아래와 같음. 즉, MyFunction 익명 객체를 만들어 집어 넣는 것을 식으로 표현한 것임.
+//        new MyFunction() {
+//            @Override
+//            public void run() {
+//                System.out.println("f3.run()");
+//            }
+//        };
         return function;
     }
 
@@ -16,7 +23,7 @@ public class LamdaEx1 {
         //람다식으로 MyFunction의 run()을 구현
         MyFunction f1 = () -> System.out.println("f1.run()");
 
-        MyFunction f2 = new MyFunction() {
+        MyFunction f2 = new MyFunction() { // 익명클래스로 run() 구현
             public void run() {
                 System.out.println("f2.run()");
             }
